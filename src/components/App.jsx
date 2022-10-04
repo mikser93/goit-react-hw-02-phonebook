@@ -16,12 +16,22 @@ class App extends Component {
     filter: '',
   };
 
+  // addContact = (name, number) => {
+  //   if (this.state.contacts.reduce((acc, item) => [...acc, item.name], []).includes(name)) {
+  //     alert(`${name} is already in contacts`);
+  //   } else {
+  //     this.setState(prevState => {
+  //       return {contacts: [...prevState.contacts, { id: nanoid(), name: name, number: number }]};
+  //     });
+  //   };
+  // };
+
   addContact = (name, number) => {
-    if (this.state.contacts.reduce((acc, item) => [...acc, item.name], []).includes(name)) {
+    if (this.state.contacts.find((item) => item.name === name)) {
       alert(`${name} is already in contacts`);
     } else {
       this.setState(prevState => {
-        return {contacts: [...prevState.contacts, { id: nanoid(), name: name, number: number }]};
+        return {contacts: [...prevState.contacts, { id: nanoid(), name, number}]};
       });
     };
   };
@@ -30,9 +40,9 @@ class App extends Component {
     this.setState({filter: event.target.value.toLowerCase()});
   };
 
-  deleteContact = (event) => {
+  deleteContact = (id) => {
     this.setState(prevState => {
-        return {contacts: prevState.contacts.filter(item => item.id !== event.target.name)};
+        return {contacts: prevState.contacts.filter(item => item.id !== id)};
       });
   };
 
