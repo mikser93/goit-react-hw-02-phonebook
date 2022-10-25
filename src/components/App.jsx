@@ -16,16 +16,6 @@ class App extends Component {
     filter: '',
   };
 
-  // addContact = (name, number) => {
-  //   if (this.state.contacts.reduce((acc, item) => [...acc, item.name], []).includes(name)) {
-  //     alert(`${name} is already in contacts`);
-  //   } else {
-  //     this.setState(prevState => {
-  //       return {contacts: [...prevState.contacts, { id: nanoid(), name: name, number: number }]};
-  //     });
-  //   };
-  // };
-
   addContact = (name, number) => {
     if (this.state.contacts.find(item => item.name === name)) {
       alert(`${name} is already in contacts`);

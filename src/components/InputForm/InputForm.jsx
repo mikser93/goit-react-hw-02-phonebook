@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import s from './InputForm.module.css';
+import { Form, Label } from './InputForm.styled';
 
 export class InputForm extends Component {
     state = {
@@ -26,8 +26,8 @@ export class InputForm extends Component {
 
     render() {
         return (
-            <form className={s.form} onSubmit={this.formSubmit}>
-                <label className={s.label}>
+            <Form onSubmit={this.formSubmit}>
+                <Label>
                     Name
                     <input
                         type="text"
@@ -39,8 +39,8 @@ export class InputForm extends Component {
                         value={this.state.name}
                         onChange={this.inputOperator}
                     />
-                </label>
-                <label className={s.label}>
+                </Label>
+                <Label>
                     Number
                     <input
                         type="tel"
@@ -51,9 +51,9 @@ export class InputForm extends Component {
                         value={this.state.number}
                         onChange={this.inputOperator}
                     />
-                </label>
+                </Label>
                 <button type='submit'>Add contact</button>
-            </form>
+            </Form>
         );
     };
 };

@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import { Contact } from './Contact';
 import PropTypes from 'prop-types';
-import s from './ContactsList.module.css';
+import { ContactsListUl } from './Contact.styled';
 
 export class ContactsList extends Component {
     render() {
         return (
-            <ul className={s.contactsList}>
+            <ContactsListUl>
                 <Contact currentContacts={this.props.currentContacts} deleteContact={this.props.deleteContact} />
-            </ul>
+            </ContactsListUl>
         );
     };
 };

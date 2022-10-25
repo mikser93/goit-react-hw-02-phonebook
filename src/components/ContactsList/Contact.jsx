@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import s from './ContactsList.module.css';
+import { ContactBox } from './Contact.styled';
 
 export class Contact extends Component {
   render() {
     return this.props.currentContacts.map(item => (
       <li key={item.id}>
-        <div className={s.contact}>
+        <ContactBox>
           <p>
             {item.name}: <span>{item.number}</span>
           </p>
@@ -16,7 +16,7 @@ export class Contact extends Component {
           >
             Delete
           </button>
-        </div>
+        </ContactBox>
       </li>
     ));
   }
